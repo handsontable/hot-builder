@@ -1,0 +1,46 @@
+{
+  "name": "hot-builder",
+  "description": "CLI tool for building custom Handsontable package",
+  "homepage": "http://handsontable.com/",
+  "bugs": {
+    "url": "https://github.com/handsontable/hot-builder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/handsontable/hot-builder.git"
+  },
+  "author": "Handsoncode <hello@handsontable.com>",
+  "version": "0.1.0",
+  "keywords": [
+    "build",
+    "builder",
+    "handsontable",
+    "system",
+    "make",
+    "tool"
+  ],
+  "tags": [
+    "build",
+    "builder",
+    "handsontable",
+    "system",
+    "make",
+    "tool"
+  ],
+  "dependencies": {
+    "async": "^0.9.0",
+    "browserify": "^8.1.1",
+    "colors": "^1.0.3",
+    "es6ify": "^1.6.0",
+    "glob": "^4.3.5",
+    "handsontable": "git://github.com/handsontable/handsontable",
+    "inherits": "^2.0.1",
+    "inquirer": "^0.8.0",
+    "lodash": "^3.2.0",
+    "minimist": "^1.1.0",
+    "resolve": "^1.1.0"
+  },
+  "scripts": {},
+  "bin": "./bin/hot-builder",
+  "license": "MIT"
+}
