@@ -11,15 +11,9 @@
   },
   "author": "Handsoncode <hello@handsontable.com>",
   "version": "0.1.0",
+  "main": "./lib/builder.js",
+  "bin": "./bin/hot-builder",
   "keywords": [
-    "build",
-    "builder",
-    "handsontable",
-    "system",
-    "make",
-    "tool"
-  ],
-  "tags": [
     "build",
     "builder",
     "handsontable",
@@ -33,11 +27,11 @@
     "colors": "^1.0.3",
     "cssmin": "^0.4.2",
     "es6ify": "^1.6.0",
+    "event-stream": "^3.2.2",
     "glob": "^4.3.5",
     "handsontable": "git://github.com/handsontable/handsontable",
     "inherits": "^2.0.1",
     "inquirer": "^0.8.0",
-    "lodash": "^3.2.0",
     "minimist": "^1.1.0",
     "moment": "^2.9.0",
     "ncp": "^2.0.0",
@@ -55,7 +49,8 @@
         "moment.js",
         "locale",
         "LICENSE"
-      ]
+      ],
+      "global": "moment"
     },
     "pikaday": {
       "include": [
@@ -66,7 +61,8 @@
         "pikaday.js",
         "css/pikaday.css",
         "LICENSE"
-      ]
+      ],
+      "global": "Pikaday"
     },
     "zeroclipboard": {
       "include": [
@@ -76,10 +72,13 @@
         "dist/ZeroClipboard.js",
         "dist/ZeroClipboard.swf",
         "LICENSE"
-      ]
+      ],
+      "global": "ZeroClipboard"
+    },
+    "numeral": {
+      "global": "numeral"
     }
   },
   "scripts": {},
-  "bin": "./bin/hot-builder",
   "license": "MIT"
 }

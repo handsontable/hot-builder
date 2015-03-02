@@ -9,10 +9,13 @@ var argv = require('minimist')(process.argv.slice(2), {
 });
 var builder = require('./../lib/builder');
 var fs = require('fs');
+var packageInfo = require('../package.json');
+var replace =  require('event-stream').replace;
 
 
 if (argv._.length === 0 && Object.keys(argv).length === 1 || argv._.indexOf('help') !== -1) {
   fs.createReadStream(__dirname + '/help.txt')
+    .pipe(replace('@@version', packageInfo.version))
     .pipe(process.stdout)
     .on('close', function () {
       process.exit(1);
@@ -20,7 +23,7 @@ if (argv._.length === 0 && Object.keys(argv).length === 1 || argv._.indexOf('hel
   ;
 }
 if (argv._.indexOf('version') !== -1) {
-  console.log(require('../package.json').name + ' v' + require('../package.json').version);
+  console.log(packageInfo.name + ' v' + packageInfo.version);
 }
 if (argv._.length === 1 && argv._.indexOf('build') !== -1) {
   if (!argv['output-dir']) {
@@ -28,20 +31,24 @@ if (argv._.length === 1 && argv._.indexOf('build') !== -1) {
 
     return;
   }
-  //try {
-    var b = builder(argv);
-  //} catch (ex) {
-  //  console.error(ex.message.error);
-  //}
+  var b;
 
-  //b.on('error', function(err) {
-  //  if (err.stack) {
-  //    console.error(err.stack);
-  //  }
-  //  else {
-  //    console.error(String(err));
-  //  }
-  //  process.exit(1);
-  //});
+  try {
+    b = builder(argv);
+  } catch (ex) {
+    console.error(ex.message.error);
+  }
+
+  if (b) {
+    b.on('error', function(err) {
+      if (err.stack) {
+        console.error(err.stack);
+      }
+      else {
+        console.error(String(err));
+      }
+      process.exit(1);
+    });
+  }
 }
 
