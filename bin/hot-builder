@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv.slice(2), {
+  alias: {
+    'i': 'input',
+    'o': 'output-dir',
+    'du': 'disable-ui',
+    'a': 'all',
+    'ap': 'all-plugins',
+    'av': 'all-validators',
+    'ar': 'all-renderers',
+    'ae': 'all-editors'
+  }
+});
+var builder = require('./../lib/builder');
+var fs = require('fs');
+var packageInfo = require('../package.json');
+var replace =  require('event-stream').replace;
+
+
+if (argv._.length === 0 && Object.keys(argv).length === 1 || argv._.indexOf('help') !== -1) {
+  fs.createReadStream(__dirname + '/help.txt')
+    .pipe(replace('@@version', packageInfo.version))
+    .pipe(process.stdout)
+    .on('close', function () {
+      process.exit(1);
+    })
+  ;
+}
+if (argv._.indexOf('version') !== -1) {
+  console.log(packageInfo.name + ' v' + packageInfo.version);
+}
+if (argv._.length === 1 && argv._.indexOf('build') !== -1) {
+  if (!argv['output-dir']) {
+    console.log('No output directory specified'.error);
+
+    return;
+  }
+  var b;
+
+  try {
+    b = builder(argv);
+  } catch (ex) {
+    console.error(ex.message.error);
+  }
+
+  if (b) {
+    b.on('error', function(err) {
+      if (err.stack) {
+        console.error(err.stack);
+      }
+      else {
+        console.error(String(err));
+      }
+      process.exit(1);
+    });
+  }
+}
+
