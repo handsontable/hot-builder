@@ -8,9 +8,9 @@ Available commands:
   build - Build custom version of Handsontable.
 
 Build Options:
-  --input, -i       Input package.json file (default entry point is node_modules/handsontable/package.json).
-  --output-dir, -o  Output directory.
-  --all, -a         If exists it includes by default all founded modules.
-  --add-plugin      Adds specified plugin to build package (eg. --add-plugin=ContextMenu,Autofill or --add-plugin=ContextMenu --add-plugin=Autofill).
-  --remove-plugin   Removes specified plugin from build package (eg. --remove-plugin=ContextMenu,Autofill or --remove-plugin=ContextMenu --add-plugin=Autofill).
-  --disable-ui      Disable UI
+  --input, -i             Input package.json file (default entry point is node_modules/handsontable/package.json).
+  --output-dir, -o        Output directory.
+  --all, -a               If exists it includes by default all founded modules.
+  --add-module            Adds specified module to build package (eg. --add-module=ContextMenu,AutocompleteEditor or --add-module=ContextMenu --add-module=AutocompleteEditor).
+  --remove-module         Removes specified module from build package (eg. --remove-module=ContextMenu,AutocompleteEditor or --remove-module=ContextMenu --add-module=AutocompleteEditor).
+  --disable-ui, -du       Disable UI

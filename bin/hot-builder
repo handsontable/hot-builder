@@ -4,7 +4,12 @@ var argv = require('minimist')(process.argv.slice(2), {
   alias: {
     'i': 'input',
     'o': 'output-dir',
-    'a': 'all'
+    'du': 'disable-ui',
+    'a': 'all',
+    'ap': 'all-plugins',
+    'av': 'all-validators',
+    'ar': 'all-renderers',
+    'ae': 'all-editors'
   }
 });
 var builder = require('./../lib/builder');
