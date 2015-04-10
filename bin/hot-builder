@@ -27,7 +27,7 @@ if (argv._.length === 0 && Object.keys(argv).length === 1 || argv._.indexOf('hel
     })
   ;
 }
-if (argv._.indexOf('version') !== -1) {
+if (argv._.indexOf('version') !== -1 || argv.version === true) {
   console.log(packageInfo.name + ' v' + packageInfo.version);
 }
 if (argv._.length === 1 && argv._.indexOf('build') !== -1) {
