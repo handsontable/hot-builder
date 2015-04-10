@@ -10,7 +10,7 @@ Available commands:
 Build Options:
   --input, -i             Input package.json file (default entry point is node_modules/handsontable/package.json).
   --output-dir, -o        Output directory.
-  --all, -a               If exists it includes by default all founded modules.
+  --all, -a               If exists it includes by default all found modules.
   --add-module            Adds specified module to build package (eg. --add-module=ContextMenu,AutocompleteEditor or --add-module=ContextMenu --add-module=AutocompleteEditor).
   --remove-module         Removes specified module from build package (eg. --remove-module=ContextMenu,AutocompleteEditor or --remove-module=ContextMenu --add-module=AutocompleteEditor).
   --disable-ui, -du       Disable UI
