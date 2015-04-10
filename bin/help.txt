@@ -12,5 +12,5 @@ Build Options:
   --output-dir, -o        Output directory.
   --all, -a               If exists it includes by default all founded modules.
   --add-module            Adds specified module to build package (eg. --add-module=ContextMenu,AutocompleteEditor or --add-module=ContextMenu --add-module=AutocompleteEditor).
-  --remove-module         Removes specified module from build package (eg. --remove-module=ContextMenu,AutocompleteEditor or --remove-module=ContextMenu --add-module=AutocompleteEditor).
-  --disable-ui, -du       Disable UI
+  --remove-module         Removes specified module from build package (eg. --remove-module=ContextMenu,AutocompleteEditor or --remove-module=ContextMenu --remove-module=AutocompleteEditor).
+  -D, --disable-ui        Disable UI
