@@ -13,4 +13,5 @@ Build Options:
   --all, -a               If exists it includes by default all found modules.
   --add-module            Adds specified module to build package (eg. --add-module=ContextMenu,AutocompleteEditor or --add-module=ContextMenu --add-module=AutocompleteEditor).
   --remove-module         Removes specified module from build package (eg. --remove-module=ContextMenu,AutocompleteEditor or --remove-module=ContextMenu --remove-module=AutocompleteEditor).
+  --minify                Generate additionally minified files.
   -D, --disable-ui        Disable UI
