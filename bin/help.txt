@@ -4,7 +4,7 @@ Usage: hot-builder <command>
 
 Available commands:
   help - Display this help text.
-  version - Print the Handsontable version.
+  version - Print the hot-builder version.
   build - Build custom version of Handsontable.
 
 Build Options:
