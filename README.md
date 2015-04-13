@@ -23,7 +23,12 @@ Or build your custom handsontable package (from your handsontable repository)
 $ hot-builder build --input your-handsontable/package.json --output hot-dist
 ```
 
-After executing command and selecting plugins builder automatically resolve all plugins and external libraries dependencies and build package in `hot-dist` directory. 
+After executing command and selecting plugins builder automatically resolve all plugins and external libraries dependencies and build package in `hot-dist` directory.
+ 
+If it works correctly, you should see something like:
+
+![Select plugins UI](http://i.imgur.com/1wjeC56h.png)
+![Select plugins UI](http://i.imgur.com/FZ4MTY1h.png)
 
 ## Usage
 
