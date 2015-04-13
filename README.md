@@ -32,22 +32,24 @@ If it works correctly, you should see something like:
 
 ## Usage
 
-#### build
+##### ```> hot-builder build```
 
 Build custom version of handsontable.
 
+Arguments:
 - ```--input, -i``` - Input package.json file (default entry point is Handsontable which is added as dependency to hot-builder - `node_modules/handsontable/package.json`).
 - ```--output-dir, -o``` - Output directory.
 - ```--all, -a``` - If exists it includes by default all found modules.
 - ```--add-module``` - Adds specified module to build package (eg. `--add-module=ContextMenu,AutocompleteEditor` or `--add-module=ContextMenu --add-module=AutocompleteEditor`).
 - ```--remove-module``` - Removes specified module from build package (eg. `--remove-module=ContextMenu,AutocompleteEditor` or `--remove-module=ContextMenu --remove-module=AutocompleteEditor`).
+- ```--minify``` - Generate additionally minified files.
 - ```--disable-ui, -D``` - Disable UI.
 
-#### help
+##### ```> hot-builder help```
 
 Display `hot-builder` help.
 
-#### version
+##### ```> hot-builder version```
 
 Print the `hot-builder` version.
 
