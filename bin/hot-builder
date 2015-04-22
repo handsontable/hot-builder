@@ -23,7 +23,7 @@ if (argv._.length === 0 && Object.keys(argv).length === 1 || argv._.indexOf('hel
     .pipe(replace('@@version', packageInfo.version))
     .pipe(process.stdout)
     .on('close', function () {
-      process.exit(1);
+      process.exit(0);
     })
   ;
 }
