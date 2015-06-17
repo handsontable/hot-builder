@@ -10,7 +10,7 @@
     "url": "https://github.com/handsontable/hot-builder.git"
   },
   "author": "Handsoncode <hello@handsontable.com>",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "./lib/builder.js",
   "bin": "./bin/hot-builder",
   "keywords": [
@@ -27,7 +27,6 @@
     "browserify-transform-tools": "^1.4.2",
     "colors": "^1.1.0",
     "cssmin": "^0.4.3",
-    "detachkify": "0.0.5",
     "es6ify": "^1.6.0",
     "event-stream": "^3.3.1",
     "glob": "^5.0.10",
