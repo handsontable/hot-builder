@@ -53,6 +53,10 @@ Display `hot-builder` help.
 
 Print the `hot-builder` version.
 
+## TODO
+
+* Write tests
+
 ## License
 
 [MIT License](http://opensource.org/licenses/MIT)
