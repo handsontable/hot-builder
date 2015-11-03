@@ -39,6 +39,7 @@ if (argv._.length === 1 && argv._.indexOf('build') !== -1) {
   var b;
 
   try {
+    argv.cli = true;
     b = builder(argv);
   } catch (ex) {
     console.error(ex.message.error);
