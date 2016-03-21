@@ -10,7 +10,7 @@
     "url": "https://github.com/handsontable/hot-builder.git"
   },
   "author": "Handsoncode <hello@handsontable.com>",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "main": "./lib/builder.js",
   "bin": "./bin/hot-builder",
   "keywords": [
@@ -22,25 +22,28 @@
     "tool"
   ],
   "dependencies": {
-    "async": "^1.2.1",
-    "browserify": "^12.0.1",
+    "async": "^1.5.2",
+    "browserify": "^13.0.0",
+    "browserify-derequire": "^0.9.4",
     "browserify-transform-tools": "^1.5.0",
     "colors": "^1.1.2",
     "cssmin": "^0.4.3",
-    "es6ify": "^1.6.0",
     "event-stream": "^3.3.2",
     "extend": "^3.0.0",
-    "glob": "^5.0.15",
+    "glob": "^7.0.3",
     "handsontable": "git://github.com/handsontable/handsontable",
     "inherits": "^2.0.1",
-    "inquirer": "^0.11.0",
+    "inquirer": "^0.12.0",
     "minimist": "^1.2.0",
     "ncp": "^2.0.0",
     "npm": "^2.14.9",
-    "resolve": "^1.1.6",
-    "starts-with": "^1.0.0",
-    "through2": "^2.0.0",
-    "uglify-js": "^2.5.0"
+    "resolve": "^1.1.7",
+    "starts-with": "^1.0.2",
+    "through": "^2.2.7",
+    "through2": "^2.0.1",
+    "traceur": "0.0.79",
+    "uglify-js": "^2.6.2",
+    "xtend": "^2.2.0"
   },
   "scripts": {},
   "license": "MIT"
