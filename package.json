@@ -48,9 +48,8 @@
     "uglify-js": "^2.6.2",
     "xtend": "^2.2.0"
   },
-  "scripts": {},
-  "license": "MIT",
   "devDependencies": {
     "generate-release": "^0.7.3"
-  }
+  },
+  "license": "MIT"
 }
