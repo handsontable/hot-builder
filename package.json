@@ -13,6 +13,9 @@
   "version": "0.5.1",
   "main": "./lib/builder.js",
   "bin": "./bin/hot-builder",
+  "scripts": {
+    "release": "generate-release"
+  },
   "keywords": [
     "build",
     "builder",
@@ -46,5 +49,8 @@
     "xtend": "^2.2.0"
   },
   "scripts": {},
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "generate-release": "^0.7.3"
+  }
 }
