@@ -10,9 +10,12 @@
     "url": "https://github.com/handsontable/hot-builder.git"
   },
   "author": "Handsoncode <hello@handsontable.com>",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "./lib/builder.js",
   "bin": "./bin/hot-builder",
+  "scripts": {
+    "release": "generate-release"
+  },
   "keywords": [
     "build",
     "builder",
@@ -45,6 +48,8 @@
     "uglify-js": "^2.6.2",
     "xtend": "^2.2.0"
   },
-  "scripts": {},
+  "devDependencies": {
+    "generate-release": "^0.7.3"
+  },
   "license": "MIT"
 }
