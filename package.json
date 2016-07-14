@@ -49,7 +49,7 @@
     "xtend": "^2.2.0"
   },
   "devDependencies": {
-    "generate-release": "^0.7.3"
+    "generate-release": "^0.10.2"
   },
   "license": "MIT"
 }
