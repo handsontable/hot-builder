@@ -14,13 +14,13 @@ $ npm install hot-builder -g
 Build your custom handsontable package (from oryginal handsontable repository)
 
 ```sh
-$ hot-builder build --output hot-dist
+$ hot-builder build --output-dir hot-dist
 ```
 
 Or build your custom handsontable package (from your handsontable repository)
 
 ```sh
-$ hot-builder build --input your-handsontable/package.json --output hot-dist
+$ hot-builder build --input your-handsontable/package.json --output-dir hot-dist
 ```
 
 After executing command and selecting plugins builder automatically resolve all plugins and external libraries dependencies and build package in `hot-dist` directory.
