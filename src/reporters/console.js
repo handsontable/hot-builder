@@ -8,6 +8,8 @@ var paddingVisitor = require('./tokenVisitors/padding');
 var spinnerVisitor = require('./tokenVisitors/spinner');
 var logger = require('./../helpers/logger');
 
+require('draftlog').into(console);
+
 /**
  * @param {String} message Message pattern to print.
  */
