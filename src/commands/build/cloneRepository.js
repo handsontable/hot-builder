@@ -27,7 +27,7 @@ module.exports = function cloneRepository(data) {
         resolve(data);
       }
     }, function() {
-      reject();
+      reject(new Error('Unable to clone the repository. Check if you have all necessary rights to the repository and try again.'));
     });
   });
 }
