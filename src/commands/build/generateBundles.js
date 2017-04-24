@@ -19,7 +19,7 @@ module.exports = function generateBundles(data) {
 
     configFactory.VALID_CONFIGS.forEach(function(configName) {
       var commandOptions = objectClone(data.options);
-      var workerOptions = {padding: 2};
+      var workerOptions = {indent: 2};
 
       commandOptions.configName = configName;
       commands.push({

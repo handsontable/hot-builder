@@ -14,7 +14,7 @@ module.exports = function depsInstall(data) {
     var commandOptions = objectClone(data.options);
     var command = {
       command: commandGenerator('depsInstaller', commandOptions),
-      description: 'Installing all necessary dependencies...',
+      description: 'Installing all necessary dependencies (it will take a while)...',
     };
 
     workerManager([command], data.options, function(killed) {

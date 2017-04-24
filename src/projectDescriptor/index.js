@@ -42,10 +42,10 @@ ProjectDescriptor.prototype.checkProjectValidity = function() {
   }
 
   if (this.getName() === 'handsontable' && semver.lt(this.getVersion(), MINIMUM_SUPPORTED_CE_VERSION)) {
-    throw Error('Your handsontable CE repository (v' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_CE_VERSION + '.');
+    throw Error('Your handsontable CE repository (' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_CE_VERSION + '.');
   }
   if (this.getName() === 'handsontable-pro' && semver.lt(this.getVersion(), MINIMUM_SUPPORTED_PRO_VERSION)) {
-    throw Error('Your handsontable PRO repository (v' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_PRO_VERSION + '.');
+    throw Error('Your handsontable PRO repository (' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_PRO_VERSION + '.');
   }
 }
 

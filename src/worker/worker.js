@@ -14,7 +14,7 @@ var ConsoleReporter = require('./../reporters/console');
 function Worker(command, description, options) {
   this.command = command;
   this.options = options || {
-    padding: 0,
+    indent: 0,
   };
   this.description = description;
   this.process = null;
@@ -23,9 +23,9 @@ function Worker(command, description, options) {
   this.error = false;
   this.output = {};
 
-  var padding = this.options.padding ? leftPad(' ', this.options.padding, ' ') : '';
+  var indent = this.options.indent ? leftPad(' ', this.options.indent, ' ') : '';
 
-  this.consoleReporter = new ConsoleReporter(padding + '[' + chalk.yellow(':spinner') + '] :description :padding :status', {
+  this.consoleReporter = new ConsoleReporter(indent + '[' + chalk.yellow(':spinner') + '] :description:padding:status', {
     status: chalk.dim('[working]'),
   });
   this.consoleReporter.on('stopped', this.onConsoleReporterStopped.bind(this));
