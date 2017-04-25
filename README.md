@@ -62,6 +62,8 @@ If it works correctly, you should see something like:
 ![hot-builder #1](http://i.imgur.com/huCCrWj.png)
 ![hot-builder #1](https://i.imgur.com/B7xwiLy.png)
 
+Additional examples:
+
 - [Building Handsontable CE package from the remote repository](https://asciinema.org/a/117465)
 - [Building Handsontable CE package from a local directory](https://asciinema.org/a/117464)
 - [Building Handsontable PRO package from the remote repository](https://asciinema.org/a/117462)
