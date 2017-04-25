@@ -39,17 +39,17 @@ Display `hot-builder` usage help.
 
 ##### ```> hot-builder -V```
 
-Print the `hot-builder` installed version.
+Print the installed `hot-builder` version.
 
 ## Examples
 
-Build your custom handsontable package (from handsontable repository)
+Build your custom handsontable CE package (from handsontable remote repository)
 
 ```sh
 $ hot-builder build -o hot-dist
 ```
 
-Or build your custom handsontable package (from your handsontable repository)
+Or build your custom handsontable CE package using local directory
 
 ```sh
 $ hot-builder build -i path-to-your-handsontable-copy/ -o hot-dist
