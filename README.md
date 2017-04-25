@@ -10,7 +10,7 @@ A CLI tool for building custom [Handsontable](https://github.com/handsontable/ha
 
 ## Installation
 
-Install the component using ["NPM"](http://npmjs.com/).
+Install the component using [npm](http://npmjs.com/).
 
 ```sh
 npm install hot-builder -g
@@ -59,11 +59,13 @@ After executing command and selecting plugins builder automatically resolve all 
 
 If it works correctly, you should see something like:
 
-[![asciicast](https://asciinema.org/a/117461.png)](https://asciinema.org/a/117461)
+![hot-builder #1](http://i.imgur.com/huCCrWj.png)
+![hot-builder #1](https://i.imgur.com/B7xwiLy.png)
 
-- [Simple react-handsontable implementation](http://codepen.io/handsoncode/pen/ygvaxv?editors=0010)
-- [Simple react-handsontable implementation with a single-property configuration](http://codepen.io/handsoncode/pen/pRamwZ?editors=0010)
-- [Interactive HotTable demo](http://codepen.io/handsoncode/pen/zNRoxb?editors=0010)
+- [Building Handsontable CE package from the remote repository](https://asciinema.org/a/117465)
+- [Building Handsontable CE package from a local directory](https://asciinema.org/a/117464)
+- [Building Handsontable PRO package from the remote repository](https://asciinema.org/a/117462)
+- [Building Handsontable CE package with specified plugins only](https://asciinema.org/a/117466)
 
 ## License
 `hot-builder` is released under the [MIT license](https://github.com/handsontable/hot-builder/blob/master/LICENSE).
