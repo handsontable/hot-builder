@@ -10,7 +10,7 @@ A CLI tool for building custom [Handsontable](https://github.com/handsontable/ha
 
 ## Installation
 
-Install the component using [npm](http://npmjs.com/).
+Install the tool using [npm](http://npmjs.com/).
 
 ```sh
 npm install hot-builder -g
