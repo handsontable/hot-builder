@@ -23,19 +23,19 @@ npm install hot-builder -g
 Builds custom version of handsontable.
 
 Arguments:
-- ```-i, --input``` - Path to directory where Handsontable Community Edition or Handsontable PRO repository was downloaded.
+- ```-i, --input``` - Path to a directory where Handsontable Community Edition or Handsontable PRO repository was downloaded.
 - ```-o, --output-dir``` - Output directory where generated bundle will be saved.
 - ```-a, --include-all``` - Includes all found modules into generated bundle.
 - ```-A, --add-module``` - Includes specified modules into generated bundle (eg. `-A ContextMenu,ManualRowMove`).
 - ```-R, --remove-module``` - Excludes specified modules from generated bundle (eg. `-R ContextMenu,ManualRowMove`).
-- ```-U, --no-ui``` - Disables UI.
-- ```--repository-tag``` - Specifies what version of Handsontable Community Edition or Handsontable PRO repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 0.32.0`). This option is active only if you omitted `-i`, `--input` argument.
-- ```--pro``` - Indicates that version specified by `--repository-tag` argument will be referred to Handsontable PRO package.
+- ```-U, --no-ui``` - Disables the UI.
+- ```--repository-tag``` - Specifies which version of Handsontable Community Edition or Handsontable PRO repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 0.32.0`). This option is active only if you omitted `-i`, `--input` argument.
+- ```--pro``` - Indicates that version specified by `--repository-tag` argument will be referring to the Handsontable PRO package.
 - ```--debug``` - Debug mode - will output debug messages from workers.
 
 ##### ```> hot-builder -h```
 
-Displays `hot-builder` usage help.
+Displays `hot-builder` help information.
 
 ##### ```> hot-builder -V```
 
@@ -43,19 +43,19 @@ Prints the installed `hot-builder` version.
 
 ## Examples
 
-Build your custom handsontable Community Edition package (from handsontable remote repository)
+Build your custom handsontable Community Edition package (from the handsontable remote repository)
 
 ```sh
 $ hot-builder build -o hot-dist
 ```
 
-Or build your custom handsontable Community Edition package using local directory
+Or build your custom handsontable Community Edition package using a local directory
 
 ```sh
 $ hot-builder build -i path-to-your-handsontable-copy/ -o hot-dist
 ```
 
-After executing command and selecting plugins builder automatically resolves all plugins, external libraries' and builds a package in `hot-dist` directory.
+After executing command and selecting plugins, the builder automatically resolves all plugins and external libraries before building a package in the `hot-dist` directory.
 
 If it works correctly, you should see something like:
 

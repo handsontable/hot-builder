@@ -20,10 +20,10 @@ function parseArgs() {
   program
     .version(packageVersion)
     // the "build" command
-    .command('build', 'Build Handsontable CE or Handsontable PRO package')
+    .command('build', 'Build Handsontable Community Edition or Handsontable PRO package')
     .option(
       '-i, --input <dir>',
-      'Path to directory where Handsontable CE or Handsontable PRO repository was downloaded',
+      'Path to a directory where Handsontable Community Edition or Handsontable PRO repository was downloaded',
       resolve
     )
     .option(
@@ -57,13 +57,13 @@ function parseArgs() {
     )
     .option(
       '--repository-tag [tag]',
-      'Specifies what version of Handsontable CE or Handsontable PRO repository will be \ncloned (eg. --repository-tag develop, or --repository-tag 0.32.0). \nThis option is active only if you omitted -i, --input argument',
+      'Specifies what version of Handsontable Community Edition or Handsontable PRO repository will be \ncloned (eg. --repository-tag develop, or --repository-tag 0.32.0). \nThis option is active only if you omitted -i, --input argument',
       void 0,
       'master'
     )
     .option(
       '--pro',
-      'Indicates that version specyfied by --repository-tag argument will be refered to Handsontable PRO package',
+      'Indicates that version specyfied by --repository-tag argument will be referring to the Handsontable PRO package',
       program.BOOL
     )
     .option(
