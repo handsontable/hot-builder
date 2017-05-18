@@ -1,62 +1,77 @@
-# hot-builder
-CLI tool for building custom [handsontable](https://github.com/handsontable/handsontable) package
+# hot-builder  [![Build Status](https://travis-ci.org/handsontable/hot-builder.png?branch=master)](https://travis-ci.org/handsontable/hot-builer) [![hot-builder](https://img.shields.io/npm/v/hot-builder.svg)](https://www.npmjs.com/package/hot-builder)
+A CLI tool for building custom [Handsontable](https://github.com/handsontable/handsontable) spreadsheet component.
 
-## Install
+## Table of contents
+1. [Installation](#installation)
+2. [Basic usage](#basic-usage)
+4. [Examples](#examples)
+5. [License](#license)
+6. [Contact](#contact)
 
-Install the component using [NPM](http://npmjs.com/):
+## Installation
 
-```sh
-$ npm install hot-builder -g
-```
-
-## Example
-
-Build your custom handsontable package (from oryginal handsontable repository)
-
-```sh
-$ hot-builder build --output-dir hot-dist
-```
-
-Or build your custom handsontable package (from your handsontable repository)
+Install the tool using [npm](http://npmjs.com/).
 
 ```sh
-$ hot-builder build --input your-handsontable/package.json --output-dir hot-dist
+npm install hot-builder -g
 ```
 
-After executing command and selecting plugins builder automatically resolve all plugins and external libraries dependencies and build package in `hot-dist` directory.
- 
-If it works correctly, you should see something like:
-
-![Select plugins UI](http://i.imgur.com/1wjeC56h.png)
-![Select plugins UI](http://i.imgur.com/FZ4MTY1h.png)
-
-## Usage
+## Basic usage
 
 ##### ```> hot-builder build```
 
-Build custom version of handsontable.
+Builds custom version of handsontable.
 
 Arguments:
-- ```--input, -i``` - Input package.json file (default entry point is Handsontable which is added as dependency to hot-builder - `node_modules/handsontable/package.json`).
-- ```--output-dir, -o``` - Output directory.
-- ```--all, -a``` - If exists it includes by default all found modules.
-- ```--add-module``` - Adds specified module to build package (eg. `--add-module=ContextMenu,AutocompleteEditor` or `--add-module=ContextMenu --add-module=AutocompleteEditor`).
-- ```--remove-module``` - Removes specified module from build package (eg. `--remove-module=ContextMenu,AutocompleteEditor` or `--remove-module=ContextMenu --remove-module=AutocompleteEditor`).
-- ```--minify``` - Generate additionally minified files.
-- ```--disable-ui, -D``` - Disable UI.
+- ```-i, --input``` - Path to a directory where Handsontable Community Edition or Handsontable PRO repository was downloaded.
+- ```-o, --output-dir``` - Output directory where generated bundle will be saved.
+- ```-a, --include-all``` - Includes all found modules into generated bundle.
+- ```-A, --add-module``` - Includes specified modules into generated bundle (eg. `-A ContextMenu,ManualRowMove`).
+- ```-R, --remove-module``` - Excludes specified modules from generated bundle (eg. `-R ContextMenu,ManualRowMove`).
+- ```-U, --no-ui``` - Disables the UI.
+- ```--repository-tag``` - Specifies which version of Handsontable Community Edition or Handsontable PRO repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 0.32.0`). This option is active only if you omitted `-i`, `--input` argument.
+- ```--pro``` - Indicates that version specified by `--repository-tag` argument will be referring to the Handsontable PRO package.
+- ```--debug``` - Debug mode - will output debug messages from workers.
 
-##### ```> hot-builder help```
+##### ```> hot-builder -h```
 
-Display `hot-builder` help.
+Displays `hot-builder` help information.
 
-##### ```> hot-builder version```
+##### ```> hot-builder -V```
 
-Print the `hot-builder` version.
+Prints the installed `hot-builder` version.
 
-## TODO
+## Examples
 
-* Write tests
+Build your custom handsontable Community Edition package (from the handsontable remote repository)
+
+```sh
+$ hot-builder build -o hot-dist
+```
+
+Or build your custom handsontable Community Edition package using a local directory
+
+```sh
+$ hot-builder build -i path-to-your-handsontable-copy/ -o hot-dist
+```
+
+After executing command and selecting plugins, the builder automatically resolves all plugins and external libraries before building a package in the `hot-dist` directory.
+
+If it works correctly, you should see something like:
+
+![hot-builder #1](http://i.imgur.com/huCCrWj.png)
+![hot-builder #1](https://i.imgur.com/B7xwiLy.png)
+
+Additional examples:
+
+- [Building Handsontable Community Edition package from the remote repository](https://asciinema.org/a/117465)
+- [Building Handsontable Community Edition package from a local directory](https://asciinema.org/a/117464)
+- [Building Handsontable PRO package from the remote repository](https://asciinema.org/a/117462)
+- [Building Handsontable Community Edition package with specified plugins only](https://asciinema.org/a/117466)
 
 ## License
+`hot-builder` is released under the [MIT license](https://github.com/handsontable/hot-builder/blob/master/LICENSE).
+Copyrights belong to Handsoncode sp. z o.o.
 
-[MIT License](http://opensource.org/licenses/MIT)
+## Contact
+Feel free to give us feedback on this tool using this [contact form](https://handsontable.com/contact.html) or write directly at hello@handsontable.com.
