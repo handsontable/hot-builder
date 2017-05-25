@@ -1,7 +1,6 @@
 'use strict';
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require('path');
 var configFactory = require('./base');
 
 /**

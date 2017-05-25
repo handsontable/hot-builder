@@ -21,6 +21,7 @@ var configFactory = require('./../configs');
 
   task.use(require('./../configs/' + options.configName));
 
+  /* eslint-disable no-unused-vars */
   webpack(task.getConfig(), function(err, stats) {
 
   });
