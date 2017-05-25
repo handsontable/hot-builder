@@ -1,7 +1,6 @@
 'use strict';
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require('path');
 var configFactory = require('./base');
 
 /**
@@ -11,6 +10,7 @@ module.exports.create = function create(options) {
   var config = configFactory.create(options);
 
   config.output.filename = options.OUTPUT_FILENAME + '.js';
+  config.devtool = 'cheap-module-source-map';
   // Exclude all external dependencies from 'base' bundle (handsontable.js and handsontable.css files)
   config.externals = {
     numbro: {
@@ -49,7 +49,7 @@ module.exports.create = function create(options) {
       // Disable loading css files from pikaday module
       /pikaday\/css/,
     ],
-    loader: path.resolve(__dirname, '../loaders/empty-loader.js'),
+    loader: 'empty-loader',
   });
   config.plugins.push(
     new ExtractTextPlugin(options.OUTPUT_FILENAME + '.css')

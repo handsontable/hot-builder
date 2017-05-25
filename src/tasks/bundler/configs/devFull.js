@@ -1,7 +1,6 @@
 'use strict';
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require('path');
 var configFactory = require('./base');
 
 /**
@@ -14,7 +13,7 @@ module.exports.create = function create(options) {
   config.module.rules.unshift({
     test: /numbro/,
     use: [{
-      loader: path.resolve(__dirname, '../loaders/exports-to-window-loader.js'),
+      loader: 'exports-to-window-loader',
       options: {
         numbro: 'numbro',
       }
@@ -23,7 +22,7 @@ module.exports.create = function create(options) {
   config.module.rules.unshift({
     test: /moment/,
     use: [{
-      loader: path.resolve(__dirname, '../loaders/exports-to-window-loader.js'),
+      loader: 'exports-to-window-loader',
       options: {
         moment: 'moment',
       }
