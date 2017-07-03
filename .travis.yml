@@ -7,3 +7,5 @@ node_js:
 
 before_script:
   - "export TZ=Europe/Warsaw"
+
+script: ./scripts/run-tests.sh
