@@ -7,5 +7,6 @@ node_js:
 
 before_script:
   - "export TZ=Europe/Warsaw"
+  - "chmod ugo+x scripts/run-tests.sh"
 
 script: ./scripts/run-tests.sh
