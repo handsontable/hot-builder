@@ -1,14 +1,15 @@
 #!/bin/bash
 
-INFO='\033[1;31m'
+INFO='\033[1;33m'
 DONE='\033[0;32m'
 NC='\033[0m'
 
-echo -e "${INFO}*** Clonning the Handsontable repository ***${NC}"
+echo -e "${INFO}*** Cloning the Handsontable repository (the ${BRANCH} branch) ***${NC}"
 
-git clone https://github.com/handsontable/handsontable.git
+git clone -b $BRANCH https://github.com/handsontable/handsontable.git
+# Remove the 'dist' directory to make sure that the following directory will only contain only newly generated files by the 'hot-builder'.
+rm -r handsontable/dist
 
-echo -e "${DONE}*** Done ***${NC}"
 echo -e "${INFO}*** Installing all necessary dependencies via 'npm install' ***${NC}"
 
 cd handsontable/
@@ -16,13 +17,12 @@ npm install
 cd ..
 
 echo -e "${INFO}*** Building Handsontable using 'hot-builder' ***${NC}"
-echo -e "${DONE}*** Done ***${NC}"
 
-node src/main.js build -i handsontable/ -o handsontable_dist/ -a -U --quiet
+# Overwrite handsontable/dist files with this newle generated.
+node src/main.js build -i handsontable/ -o handsontable/dist -a -U --quiet
 
-echo -e "${INFO}*** Checking differences between generated distributed files ***${NC}"
-echo -e "${DONE}*** Done ***${NC}"
+echo -e "${INFO}*** Testing Handsontable generated package using regular Handsontable tests ***${NC}"
 
-diff --suppress-common-lines -y handsontable/dist/handsontable.js handsontable_dist/handsontable.js
-
-echo -e "${DONE}*** Done ***${NC}"
+cd handsontable/
+npm run test:e2e.dump
+./node_modules/.bin/grunt test-handsontable

@@ -1,5 +1,9 @@
 language: node_js
 
+env:
+  global:
+    BRANCH=master
+
 sudo: false
 
 node_js:
