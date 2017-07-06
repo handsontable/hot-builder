@@ -4,9 +4,9 @@ INFO='\033[1;33m'
 DONE='\033[0;32m'
 NC='\033[0m'
 
-echo -e "${INFO}*** Cloning the Handsontable repository (the ${BRANCH} branch) ***${NC}"
+echo -e "${INFO}*** Cloning the Handsontable repository (the ${HOT_BRANCH} branch) ***${NC}"
 
-git clone -b $BRANCH https://github.com/handsontable/handsontable.git
+git clone -b $HOT_BRANCH https://github.com/handsontable/handsontable.git
 # Remove the 'dist' directory to make sure that the following directory will only contain only newly generated files by the 'hot-builder'.
 rm -r handsontable/dist
 
