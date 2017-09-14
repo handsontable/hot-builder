@@ -19,7 +19,7 @@ var tmp = require('tmp');
   var repository = 'https://github.com/handsontable/handsontable';
 
   if (options.pro) {
-    repository = 'git@git.handsontable.com:handsontable/handsontable-pro.git';
+    repository = 'https://github.com/handsontable/handsontable-pro';
   }
 
   gitClone(repository, dirRef.name, {

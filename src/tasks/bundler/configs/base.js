@@ -5,6 +5,12 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports.create = function create(options) {
+  var hotConfig = require(path.resolve(options.input, 'hot.config.js'));
+
+  Object.keys(hotConfig).forEach(function(configKey) {
+    process.env[configKey] = hotConfig[configKey];
+  })
+
   var config = {
     devtool: false,
     cache: false,
@@ -12,6 +18,7 @@ module.exports.create = function create(options) {
     output: {
       library: 'Handsontable',
       libraryTarget: 'umd',
+      libraryExport: 'default',
       umdNamedDefine: true,
       path: options.outputDir,
     },
@@ -57,12 +64,6 @@ module.exports.create = function create(options) {
     },
     plugins: [
       new webpack.BannerPlugin(options.LICENSE),
-      new webpack.DefinePlugin({
-        '__HOT_VERSION__': JSON.stringify(options.PACKAGE_VERSION),
-        '__HOT_PACKAGE_NAME__': JSON.stringify(options.PACKAGE_NAME),
-        '__HOT_BUILD_DATE__': JSON.stringify(options.BUILD_DATE),
-        '__HOT_BASE_VERSION__': JSON.stringify(options.BASE_VERSION),
-      }),
     ],
     node: {
       global: false,

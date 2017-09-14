@@ -70,12 +70,6 @@ module.exports.create = function create(options) {
       {
         from: {glob: options.input + '/node_modules/pikaday/css/pikaday.css'}, to: 'pikaday', flatten: true
       },
-      { // zeroclipboard
-        from: {glob: options.input + '/node_modules/zeroclipboard/dist/ZeroClipboard.@(js|swf)'}, to: 'zeroclipboard', flatten: true
-      },
-      {
-        from: {glob: options.input + '/node_modules/zeroclipboard/LICENSE'}, to: 'zeroclipboard', flatten: true
-      },
     ])
   );
 
