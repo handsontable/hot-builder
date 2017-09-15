@@ -10,7 +10,7 @@
     "url": "https://github.com/handsontable/hot-builder.git"
   },
   "author": "Handsoncode <hello@handsontable.com>",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "main": "src/main.js",
   "bin": "./src/main.js",
   "scripts": {
