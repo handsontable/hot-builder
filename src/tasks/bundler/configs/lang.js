@@ -4,14 +4,12 @@
  * Config responsible for building not minified Handsontable `languages/` files.
  */
 
-var HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY = 'src/i18n/languages';
-var OUTPUT_LANGUAGES_DIRECTORY = 'languages';
-
 var path = require('path');
 var StringReplacePlugin = require('string-replace-webpack-plugin');
 var fs = require('fs');
 
 function getEntryJsFiles(options) {
+  var HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY = options.PRO ? 'node_modules/handsontable/src/i18n/languages' : 'src/i18n/languages';
   var entryObject = {};
   var languagesDirectory = path.resolve(options.input, HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY);
   var filesInLanguagesDirectory = fs.readdirSync(languagesDirectory);
@@ -33,7 +31,7 @@ function getEntryJsFiles(options) {
   return entryObject;
 }
 
-function getRuleForSnippetsInjection() {
+function getRuleForSnippetsInjection(options) {
   var NEW_LINE_CHAR = '\n';
 
   return {
@@ -43,7 +41,7 @@ function getRuleForSnippetsInjection() {
         {
           pattern: /import.+constants.+/,
           replacement: function() {
-            var snippet1 = "import Handsontable from '../../handsontable';";
+            var snippet1 = "import Handsontable from '../../" + options.PACKAGE_NAME + "';";
             var snippet2 = 'const C = Handsontable.languages.dictionaryKeys;';
 
             return snippet1 + NEW_LINE_CHAR + NEW_LINE_CHAR + snippet2;
@@ -62,7 +60,21 @@ function getRuleForSnippetsInjection() {
   };
 }
 
+function getExternalsConfig(options) {
+  var externals = {};
+
+  externals['../../' + options.PACKAGE_NAME] = {
+    root: 'Handsontable',
+    commonjs2: '../../' + options.PACKAGE_NAME,
+    commonjs: '../../' + options.PACKAGE_NAME,
+    amd: '../../' + options.PACKAGE_NAME
+  };
+
+  return externals;
+}
+
 module.exports.create = function create(options) {
+  var OUTPUT_LANGUAGES_DIRECTORY = 'languages';
   var languagesOutputDirectory = path.resolve(options.outputDir, OUTPUT_LANGUAGES_DIRECTORY);
 
   return {
@@ -74,21 +86,14 @@ module.exports.create = function create(options) {
       libraryExport: '___',
       umdNamedDefine: true
     },
-    externals: {
-      '../../handsontable': {
-        root: 'Handsontable',
-        commonjs2: '../../handsontable',
-        commonjs: '../../handsontable',
-        amd: '../../handsontable'
-      }
-    },
+    externals: getExternalsConfig(options),
     resolveLoader: {
       modules: [path.resolve(options.input, '.config/loader'), path.resolve(options.input, 'node_modules'), 'node_modules'],
     },
     module: {
       rules: [
-        {test: /\.js$/, loader: 'babel-loader'},
-        getRuleForSnippetsInjection()
+        {test: /\.js$/, exclude: /node_modules\/(?!handsontable)/, loader: 'babel-loader'},
+        getRuleForSnippetsInjection(options)
       ]
     }
   };
