@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Config responsible for building not minified Handsontable `languages/` files.
+ * Config responsible for building not minified Handsontable `/languages` files.
  */
 
 var path = require('path');
@@ -83,6 +83,7 @@ module.exports.create = function create(options) {
       path: languagesOutputDirectory,
       libraryTarget: 'umd',
       filename: '[name].js',
+      // Workaround: Without this option webpack would export all language packs as globals
       libraryExport: '___',
       umdNamedDefine: true
     },

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Config responsible for building minified Handsontable `dist/languages/` files.
+ * Config responsible for building minified Handsontable `/languages` files.
  */
 var webpack = require('webpack');
 var configFactory = require('./langDev');
