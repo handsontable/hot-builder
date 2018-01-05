@@ -5,8 +5,8 @@ var path = require('path');
 var semver = require('semver');
 var modulesDiscover = require('./modulesDiscover');
 
-var MINIMUM_SUPPORTED_CE_VERSION = '0.34.4';
-var MINIMUM_SUPPORTED_PRO_VERSION = '1.14.2';
+var MINIMUM_SUPPORTED_CE_VERSION = '0.35.0';
+var MINIMUM_SUPPORTED_PRO_VERSION = '1.15.0';
 
 module.exports = function projectDescriptor(projectPath) {
   return new ProjectDescriptor(projectPath);
