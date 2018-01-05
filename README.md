@@ -1,4 +1,4 @@
-# hot-builder  [![Build Status](https://travis-ci.org/handsontable/hot-builder.png?branch=master)](https://travis-ci.org/handsontable/hot-builer) [![hot-builder](https://img.shields.io/npm/v/hot-builder.svg)](https://www.npmjs.com/package/hot-builder)
+# hot-builder  [![Build Status](https://travis-ci.org/handsontable/hot-builder.png?branch=master)](https://travis-ci.org/handsontable/hot-builder) [![hot-builder](https://img.shields.io/npm/v/hot-builder.svg)](https://www.npmjs.com/package/hot-builder)
 A CLI tool for building custom [Handsontable](https://github.com/handsontable/handsontable/) spreadsheet component.
 
 ## Table of contents

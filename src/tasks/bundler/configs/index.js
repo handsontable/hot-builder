@@ -6,6 +6,8 @@ module.exports.VALID_CONFIGS = [
   'devFull',
   'prod',
   'prodFull',
+  'langDev',
+  'langProd',
 ];
 
 module.exports.CONFIG_DESCRIPTIONS = {
@@ -13,6 +15,8 @@ module.exports.CONFIG_DESCRIPTIONS = {
   devFull: 'Generating *.full.js and *.full.css files...',
   prod: 'Generating *.min.js and *.min.css files...',
   prodFull: 'Generating *.full.min.js and *.full.min.css files...',
+  langDev: 'Generating languages/*.js files...',
+  langProd: 'Generating languages/*.min.js files...',
 };
 
 module.exports.create = function(options) {
@@ -47,4 +51,4 @@ module.exports.create = function(options) {
       return config;
     }
   };
-}
+};
