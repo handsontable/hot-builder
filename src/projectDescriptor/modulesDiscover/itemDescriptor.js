@@ -168,7 +168,12 @@ ItemDescriptor.prototype._hydrate = function(source) {
 
         if (depsMatch && depsMatch.length >= 2) {
           this.dependencies = depsMatch[1].split(' ').filter(function(dep) {
-            return dep !== '';
+            var depNameFirstChar = dep.substr(0, 1);
+            var pattern = depNameFirstChar.toUpperCase();
+
+            // Hot internal dependencies are always started with a capital letter, so ignore not matched dependencies.
+            // This fixes a bug #27 for older versions of the Handsontable.
+            return pattern === depNameFirstChar && dep !== '';
           });
         }
         proMatch = sourceCommentData[k].match(proRe);

@@ -44,7 +44,8 @@ ModulesDiscover.prototype.discover = function() {
     var item = new ItemDescriptor({
       path: modulePath,
       files: files,
-    }); this.discoveredModules.push(item);
+    });
+    this.discoveredModules.push(item);
   }, this);
 
   this.prepareAllDependencies();
