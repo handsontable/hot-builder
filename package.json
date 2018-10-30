@@ -55,7 +55,7 @@
     "generate-release": "^0.10.2"
   },
   "engines": {
-    "node": ">=4.2.0"
+    "node": ">=8.0.0"
   },
   "license": "MIT"
 }
