@@ -25,4 +25,4 @@ echo -e "${INFO}*** Testing Handsontable generated package using regular Handson
 
 cd handsontable/
 npm run test:e2e.dump
-./node_modules/.bin/grunt test-handsontable
+npm run test:e2e.puppeteer

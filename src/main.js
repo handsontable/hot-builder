@@ -78,8 +78,8 @@ function parseArgs() {
 
 (function main() {
   try {
-    if (semver.lt(process.versions.node, '4.2.0')) {
-      throw Error('hot-builder requires Node.js >= 4.2.0 for building Handsontable custom package. You have currently installed version ' + process.versions.node + '.');
+    if (semver.lt(process.versions.node, '8.0.0')) {
+      throw Error('hot-builder requires Node.js >= 8.0.0 for building Handsontable custom package. You have currently installed version ' + process.versions.node + '.');
     }
 
     parseArgs();
