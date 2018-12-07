@@ -28,10 +28,6 @@ ModulesDiscover.prototype.discover = function() {
   // TODO: Already we support only plugins/*.
   modulePaths = glob.sync(fs.realpathSync(this.project.getPath()) + '/src/plugins/*/');
 
-  if (this.project.isPro()) {
-    modulePaths = modulePaths.concat(glob.sync(fs.realpathSync(this.project.getPath()) + '/node_modules/handsontable/src/plugins/*/'));
-  }
-
   modulePaths.forEach(function(modulePath) {
     // Searching only js files (ignoring tests).
     var files = glob.sync('**/*(@([^_]*).js)', {

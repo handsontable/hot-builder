@@ -23,9 +23,7 @@ module.exports.create = function create(options) {
       path: options.outputDir,
     },
     resolve: {
-      alias: {
-        handsontable: path.resolve(options.input, 'node_modules/handsontable/src/'),
-      },
+      alias: {},
     },
     resolveLoader: {
       modules: [path.resolve(options.input, '.config/loader'), path.resolve(options.input, 'node_modules'), 'node_modules'],
@@ -51,9 +49,10 @@ module.exports.create = function create(options) {
           test: /\.js$/,
           loader: 'babel-loader',
           exclude: [
-            /node_modules\/(?!handsontable)/,
+            /node_modules/,
           ],
           options: {
+            root: path.resolve(options.input),
             cacheDirectory: false,
             plugins: [
               [require('../plugins/moduleExcluder'), {excludedModules: options.removeModule}]

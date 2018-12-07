@@ -9,7 +9,7 @@ var StringReplacePlugin = require('string-replace-webpack-plugin');
 var fs = require('fs');
 
 function getEntryJsFiles(options) {
-  var HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY = options.PRO ? 'node_modules/handsontable/src/i18n/languages' : 'src/i18n/languages';
+  var HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY = 'src/i18n/languages';
   var entryObject = {};
   var languagesDirectory = path.resolve(options.input, HANDSONTABLE_SOURCE_LANGUAGES_DIRECTORY);
   var filesInLanguagesDirectory = fs.readdirSync(languagesDirectory);
@@ -99,4 +99,3 @@ module.exports.create = function create(options) {
     }
   };
 };
-

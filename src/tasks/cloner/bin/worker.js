@@ -18,10 +18,6 @@ var tmp = require('tmp');
 
   var repository = 'https://github.com/handsontable/handsontable';
 
-  if (options.pro) {
-    repository = 'https://github.com/handsontable/handsontable-pro';
-  }
-
   gitClone(repository, dirRef.name, {
     checkout: options.repositoryTag,
   }, function(err) {

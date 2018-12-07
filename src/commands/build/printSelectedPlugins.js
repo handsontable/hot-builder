@@ -49,10 +49,7 @@ module.exports = function printSelectedPlugins(data) {
     }
   });
   logger().info(pluginLogs);
-
-  if (data.project.isPro()) {
-    logger().info('  ' + chalk.cyan('*') + ' - PRO plugin.');
-  }
+  logger().info('\n  ' + chalk.cyan('*') + ' - PRO plugin.\n');
 
   return Promise.resolve(data);
 }

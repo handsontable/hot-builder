@@ -5,8 +5,7 @@ var path = require('path');
 var semver = require('semver');
 var modulesDiscover = require('./modulesDiscover');
 
-var MINIMUM_SUPPORTED_CE_VERSION = '0.35.0';
-var MINIMUM_SUPPORTED_PRO_VERSION = '1.15.0';
+var MINIMUM_SUPPORTED_VERSION = '7.0.0';
 
 module.exports = function projectDescriptor(projectPath) {
   return new ProjectDescriptor(projectPath);
@@ -41,16 +40,14 @@ ProjectDescriptor.prototype.checkProjectValidity = function() {
     throw Error('The project "' + this.getName() + '" is not supported.');
   }
 
-  if (this.getName() === 'handsontable' && semver.lt(this.getVersion(), MINIMUM_SUPPORTED_CE_VERSION)) {
-    throw Error('Your handsontable CE repository (' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_CE_VERSION + '.');
+  if (this.getName() === 'handsontable' && semver.lt(this.getVersion(), MINIMUM_SUPPORTED_VERSION)) {
+    throw Error('Your handsontable repository (' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_VERSION + '.');
   }
-  if (this.getName() === 'handsontable-pro' && semver.lt(this.getVersion(), MINIMUM_SUPPORTED_PRO_VERSION)) {
-    throw Error('Your handsontable PRO repository (' + this.getVersion() + ') is not supported. Minimal supported version is ' + MINIMUM_SUPPORTED_PRO_VERSION + '.');
+  if (this.getName() === 'handsontable-pro') {
+    throw Error('Handsontable PRO repository is not supported by this hot-builder version. Please download ' +
+                'Handsontable repository from https://github.com/handsontable/handsontable or install hot-builder ' +
+                'in version 4.0.0 if you want to generate bundle using an older Handsontable PRO repository URL.');
   }
-}
-
-ProjectDescriptor.prototype.isPro = function() {
-  return this.getName() === 'handsontable-pro';
 }
 
 ProjectDescriptor.prototype.getPath = function() {
@@ -79,4 +76,12 @@ ProjectDescriptor.prototype.getModulesSortedByName = function() {
 
 ProjectDescriptor.prototype.getModuleByName = function(moduleName) {
   return this.modulesDiscover.getModuleByName(moduleName);
+}
+
+ProjectDescriptor.prototype.hasIncludedProModule = function(moduleNames) {
+  return moduleNames.some(function(moduleName) {
+    var moduleDescriptor = this.getModuleByName(moduleName);
+
+    return moduleDescriptor ? moduleDescriptor.isPro() : false;
+  }, this);
 }

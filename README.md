@@ -10,7 +10,7 @@ A CLI tool for building custom [Handsontable](https://github.com/handsontable/ha
 
 ## Installation
 
-Install the tool using [npm](http://npmjs.com/).
+Install the tool using [npm](https://npmjs.com/).
 
 ```sh
 npm install hot-builder -g
@@ -30,7 +30,6 @@ Arguments:
 - ```-R, --remove-module``` - Excludes specified modules from generated bundle (eg. `-R ContextMenu,ManualRowMove`).
 - ```-U, --no-ui``` - Disables the UI.
 - ```--repository-tag``` - Specifies which version of Handsontable Community Edition or Handsontable PRO repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 0.32.0`). This option is active only if you omitted `-i`, `--input` argument.
-- ```--pro``` - Indicates that version specified by `--repository-tag` argument will be referring to the Handsontable PRO package.
 - ```--debug``` - Debug mode - will output debug messages from workers.
 
 ##### ```> hot-builder -h```
@@ -59,7 +58,7 @@ After executing command and selecting plugins, the builder automatically resolve
 
 If it works correctly, you should see something like:
 
-![hot-builder #1](http://i.imgur.com/huCCrWj.png)
+![hot-builder #1](https://i.imgur.com/huCCrWj.png)
 ![hot-builder #1](https://i.imgur.com/B7xwiLy.png)
 
 Additional examples:

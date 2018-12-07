@@ -1,6 +1,7 @@
 'use strict'
 
 var fs = require('fs');
+var path = require('path');
 
 module.exports = ItemDescriptor;
 
@@ -13,6 +14,7 @@ function ItemDescriptor(options) {
   this.files = options.files;
   this.type = null;
   this.proModule = false,
+  this.id = this.path.split(path.sep).slice(-2, -1);
   this.name = '';
   this.dependencies = [];
 
@@ -20,12 +22,7 @@ function ItemDescriptor(options) {
 }
 
 ItemDescriptor.TYPE_PLUGIN = 'plugin';
-ItemDescriptor.TYPE_VALIDATOR = 'validator';
-ItemDescriptor.TYPE_RENDERER = 'renderer';
-ItemDescriptor.TYPE_EDITOR = 'editor';
-ItemDescriptor.TYPE_EXTERNAL = 'external';
-ItemDescriptor.TYPE_INTERNAL = 'internal';
-ItemDescriptor.TYPES = [ItemDescriptor.TYPE_PLUGIN, ItemDescriptor.TYPE_VALIDATOR, ItemDescriptor.TYPE_RENDERER, ItemDescriptor.TYPE_EDITOR];
+ItemDescriptor.TYPES = [ItemDescriptor.TYPE_PLUGIN];
 
 /**
  * Get all files which should be included to the build process.
@@ -91,48 +88,17 @@ ItemDescriptor.prototype.isPlugin = function() {
 };
 
 /**
- * Checks whether the module is a validator.
- *
- * @returns {Boolean}
- */
-ItemDescriptor.prototype.isValidator = function() {
-  return this.type === ItemDescriptor.TYPE_VALIDATOR;
-};
-
-/**
- * Checks whether the module is a renderer.
- *
- * @returns {Boolean}
- */
-ItemDescriptor.prototype.isRenderer = function() {
-  return this.type === ItemDescriptor.TYPE_RENDERER;
-};
-
-/**
- * Checks whether the module is a editor.
- *
- * @returns {Boolean}
- */
-ItemDescriptor.prototype.isEditor = function() {
-  return this.type === ItemDescriptor.TYPE_EDITOR;
-};
-
-/**
  * Classify module and read all necessary informations from the source code.
  */
 ItemDescriptor.prototype.hydrate = function() {
-  var files;
-  var source;
+  var entryPoint = path.join(this.path, this.id + '.js');
 
-  files = this.getFiles();
-
-  for (var i = 0, len = files.length; i < len; i++) {
-    source = fs.readFileSync(files[i]).toString();
-
-    if (this._hydrate(source)) {
-      break;
+  this.getFiles().forEach(function(file) {
+    // Hydrate only entry point file
+    if (entryPoint === file) {
+      this._hydrate(fs.readFileSync(file).toString());
     }
-  }
+  }, this);
 };
 
 /**
@@ -144,7 +110,7 @@ ItemDescriptor.prototype.hydrate = function() {
 ItemDescriptor.prototype._hydrate = function(source) {
   var j = ItemDescriptor.TYPES.length;
   var sourceCommentRe = /(?:\/\*\*(?:[\s\S]*?)\*\/)|(?:([\s;])+\/\/(?:.*)$)/g;
-  var classRe = /@(?:component|plugin|util|renderer|editor|validator) ([a-zA-Z ]+)/;
+  var classRe = /@(?:plugin) ([a-zA-Z ]+)/;
   var dependenciesRe = /@dependencies ([a-zA-Z0-9\.\-: ]+)/;
   var proRe = /@pro/;
   var depsMatch, nameMatch, proMatch, sourceCommentData, k;
