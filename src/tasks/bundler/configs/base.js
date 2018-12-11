@@ -5,12 +5,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports.create = function create(options) {
-  var hotConfig = require(path.resolve(options.input, 'hot.config.js'));
-
-  Object.keys(hotConfig).forEach(function(configKey) {
-    process.env[configKey] = hotConfig[configKey];
-  })
-
   var config = {
     devtool: false,
     cache: false,
@@ -53,6 +47,7 @@ module.exports.create = function create(options) {
           ],
           options: {
             root: path.resolve(options.input),
+            envName: 'commonjs',
             cacheDirectory: false,
             plugins: [
               [require('../plugins/moduleExcluder'), {excludedModules: options.removeModule}]

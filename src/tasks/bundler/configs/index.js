@@ -29,14 +29,14 @@ module.exports.create = function(options) {
   licenseBody += '\nVersion: ' + packageBody.version;
   licenseBody += '\nDate: ' + new Date();
 
-  options.PRO = options.isPro;
   options.PACKAGE_NAME = packageBody.name;
-  options.OUTPUT_FILENAME = 'handsontable' + (options.PRO ? '-pro' : '');
+  options.OUTPUT_FILENAME = 'handsontable';
   options.LICENSE = licenseBody;
 
-  process.env.HOT_VERSION = packageBody.version;
-  process.env.HOT_BUILD_DATE = moment().format('DD/MM/YYYY HH:mm:ss');
-  process.env.HOT_RELEASE_DATE = hotConfig.HOT_RELEASE_DATE;
+  Object.keys(hotConfig).forEach(function(configKey) {
+    process.env[configKey] = hotConfig[configKey];
+  });
+
   process.env.HOT_PACKAGE_TYPE = options.isPro ? 'pro' : 'ce';
 
   return {

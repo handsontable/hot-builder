@@ -36,7 +36,7 @@ ProjectDescriptor.prototype.checkProjectValidity = function() {
     throw Error('There was a problem with parsing "package.json" file.');
   }
 
-  if (['handsontable', 'handsontable-pro'].indexOf(this.getName()) === -1) {
+  if (!['handsontable', 'handsontable-pro'].includes(this.getName())) {
     throw Error('The project "' + this.getName() + '" is not supported.');
   }
 

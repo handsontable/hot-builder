@@ -41,7 +41,7 @@ function getRuleForSnippetsInjection(options) {
         {
           pattern: /import.+constants.+/,
           replacement: function() {
-            var snippet1 = "import Handsontable from '../../" + options.PACKAGE_NAME + "';";
+            var snippet1 = "import Handsontable from '../../handsontable';";
             var snippet2 = 'const C = Handsontable.languages.dictionaryKeys;';
 
             return snippet1 + NEW_LINE_CHAR + NEW_LINE_CHAR + snippet2;
@@ -63,11 +63,11 @@ function getRuleForSnippetsInjection(options) {
 function getExternalsConfig(options) {
   var externals = {};
 
-  externals['../../' + options.PACKAGE_NAME] = {
+  externals['../../handsontable'] = {
     root: 'Handsontable',
-    commonjs2: '../../' + options.PACKAGE_NAME,
-    commonjs: '../../' + options.PACKAGE_NAME,
-    amd: '../../' + options.PACKAGE_NAME
+    commonjs2: '../../handsontable',
+    commonjs: '../../handsontable',
+    amd: '../../handsontable'
   };
 
   return externals;
@@ -93,7 +93,7 @@ module.exports.create = function create(options) {
     },
     module: {
       rules: [
-        {test: /\.js$/, exclude: /node_modules\/(?!handsontable)/, loader: 'babel-loader'},
+        {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
         getRuleForSnippetsInjection(options)
       ]
     }
