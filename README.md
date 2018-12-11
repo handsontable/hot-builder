@@ -10,7 +10,7 @@ A CLI tool for building custom [Handsontable](https://github.com/handsontable/ha
 
 ## Installation
 
-Install the tool using [npm](http://npmjs.com/).
+Install the tool using [npm](https://npmjs.com/).
 
 ```sh
 npm install hot-builder -g
@@ -23,14 +23,13 @@ npm install hot-builder -g
 Builds custom version of handsontable.
 
 Arguments:
-- ```-i, --input``` - Path to a directory where Handsontable Community Edition or Handsontable PRO repository was downloaded.
+- ```-i, --input``` - The path to a directory where Handsontable repository was downloaded.
 - ```-o, --output-dir``` - Output directory where generated bundle will be saved.
-- ```-a, --include-all``` - Includes all found modules into generated bundle.
-- ```-A, --add-module``` - Includes specified modules into generated bundle (eg. `-A ContextMenu,ManualRowMove`).
-- ```-R, --remove-module``` - Excludes specified modules from generated bundle (eg. `-R ContextMenu,ManualRowMove`).
+- ```-a, --include-all``` - Includes all found modules into a generated bundle.
+- ```-A, --add-module``` - Includes specified modules into a generated bundle (eg. `-A ContextMenu,ManualRowMove,TrimRows`).
+- ```-R, --remove-module``` - Excludes specified modules from a generated bundle (eg. `-R ContextMenu,ManualRowMove,TrimRows`).
 - ```-U, --no-ui``` - Disables the UI.
-- ```--repository-tag``` - Specifies which version of Handsontable Community Edition or Handsontable PRO repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 0.32.0`). This option is active only if you omitted `-i`, `--input` argument.
-- ```--pro``` - Indicates that version specified by `--repository-tag` argument will be referring to the Handsontable PRO package.
+- ```--repository-tag``` - Specifies which version of Handsontable repository will be cloned (eg. `--repository-tag develop`, or `--repository-tag 7.0.0`). This option is active only if you omitted `-i`, `--input` argument.
 - ```--debug``` - Debug mode - will output debug messages from workers.
 
 ##### ```> hot-builder -h```
@@ -43,13 +42,13 @@ Prints the installed `hot-builder` version.
 
 ## Examples
 
-Build your custom handsontable Community Edition package (from the handsontable remote repository)
+Build your custom Handsontable package (from the Handsontable remote repository)
 
 ```sh
 $ hot-builder build -o hot-dist
 ```
 
-Or build your custom handsontable Community Edition package using a local directory
+Or build your custom Handsontable package using a local directory
 
 ```sh
 $ hot-builder build -i path-to-your-handsontable-copy/ -o hot-dist
@@ -59,15 +58,15 @@ After executing command and selecting plugins, the builder automatically resolve
 
 If it works correctly, you should see something like:
 
-![hot-builder #1](http://i.imgur.com/huCCrWj.png)
+![hot-builder #1](https://i.imgur.com/huCCrWj.png)
 ![hot-builder #1](https://i.imgur.com/B7xwiLy.png)
 
 Additional examples:
 
-- [Building Handsontable Community Edition package from the remote repository](https://asciinema.org/a/117465)
-- [Building Handsontable Community Edition package from a local directory](https://asciinema.org/a/117464)
+- [Building Handsontable package from the remote repository](https://asciinema.org/a/117465)
+- [Building Handsontable package from a local directory](https://asciinema.org/a/117464)
 - [Building Handsontable PRO package from the remote repository](https://asciinema.org/a/117462)
-- [Building Handsontable Community Edition package with specified plugins only](https://asciinema.org/a/117466)
+- [Building Handsontable package with specified plugins only](https://asciinema.org/a/117466)
 
 ## License
 `hot-builder` is released under the [MIT license](https://github.com/handsontable/hot-builder/blob/master/LICENSE).

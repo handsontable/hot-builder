@@ -21,8 +21,18 @@ module.exports = function parseOptions(data) {
 
   } else if (data.options.addModule.length) {
     data.options.addModule.forEach(function(moduleToAdd) {
-      if (data.project.getModuleByName(moduleToAdd)) {
-        moduleNamesToExclude.splice(moduleNamesToExclude.indexOf(moduleToAdd), 1);
+      var module = data.project.getModuleByName(moduleToAdd);
+
+      if (module) {
+        if (moduleNamesToExclude.includes(module.name)) {
+          moduleNamesToExclude.splice(moduleNamesToExclude.indexOf(module.name), 1);
+        }
+
+        module.getAllDependencies().forEach(function(dependency) {
+          if (moduleNamesToExclude.includes(dependency.name)) {
+            moduleNamesToExclude.splice(moduleNamesToExclude.indexOf(dependency.name), 1);
+          }
+        });
       }
     });
   }

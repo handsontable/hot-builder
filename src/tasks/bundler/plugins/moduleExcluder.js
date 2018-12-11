@@ -27,7 +27,7 @@ module.exports = function _moduleExcluder() {
         enter: function(nodePath, options) {
           var excludedModules = options.opts.excludedModules;
 
-          if (isMatches(excludedModules, nodePath.node.exported.loc.identifierName)) {
+          if (nodePath.node.exported.loc && isMatches(excludedModules, nodePath.node.exported.loc.identifierName)) {
             nodePath.remove();
           }
         }

@@ -1,7 +1,5 @@
 'use strict';
 
-process.env.BABEL_ENV = 'commonjs';
-
 var webpack = require('webpack');
 var configFactory = require('./../configs');
 
@@ -13,7 +11,7 @@ var configFactory = require('./../configs');
   } catch (ex) {
     throw Error('Invalid JSON was provided.');
   }
-  if (configFactory.VALID_CONFIGS.indexOf(options.configName) === -1) {
+  if (!configFactory.VALID_CONFIGS.includes(options.configName)) {
     throw Error('Invalid task name was provided.');
   }
 
@@ -22,7 +20,5 @@ var configFactory = require('./../configs');
   task.use(require('./../configs/' + options.configName));
 
   /* eslint-disable no-unused-vars */
-  webpack(task.getConfig(), function(err, stats) {
-
-  });
+  webpack(task.getConfig(), function(err, stats) { });
 }());

@@ -14,7 +14,7 @@ module.exports = function printSelectedPlugins(data) {
   var plugins = [];
 
   data.project.getModules().forEach(function(module) {
-    var isIncluded = data.options.removeModule.indexOf(module.name) === -1;
+    var isIncluded = !data.options.removeModule.includes(module.name);
     var status = isIncluded ? chalk.green('[included]') : chalk.red('[excluded]');
     var name = chalk.yellow(module.name) + (module.isPro() ? chalk.cyan('*') : '');
     var nextLines = [];
@@ -49,10 +49,7 @@ module.exports = function printSelectedPlugins(data) {
     }
   });
   logger().info(pluginLogs);
-
-  if (data.project.isPro()) {
-    logger().info('  ' + chalk.cyan('*') + ' - PRO plugin.');
-  }
+  logger().info('\n  ' + chalk.cyan('*') + ' - PRO plugin.\n');
 
   return Promise.resolve(data);
 }

@@ -5,12 +5,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports.create = function create(options) {
-  var hotConfig = require(path.resolve(options.input, 'hot.config.js'));
-
-  Object.keys(hotConfig).forEach(function(configKey) {
-    process.env[configKey] = hotConfig[configKey];
-  })
-
   var config = {
     devtool: false,
     cache: false,
@@ -23,9 +17,7 @@ module.exports.create = function create(options) {
       path: options.outputDir,
     },
     resolve: {
-      alias: {
-        handsontable: path.resolve(options.input, 'node_modules/handsontable/src/'),
-      },
+      alias: {},
     },
     resolveLoader: {
       modules: [path.resolve(options.input, '.config/loader'), path.resolve(options.input, 'node_modules'), 'node_modules'],
@@ -51,9 +43,11 @@ module.exports.create = function create(options) {
           test: /\.js$/,
           loader: 'babel-loader',
           exclude: [
-            /node_modules\/(?!handsontable)/,
+            /node_modules/,
           ],
           options: {
+            root: path.resolve(options.input),
+            envName: 'commonjs',
             cacheDirectory: false,
             plugins: [
               [require('../plugins/moduleExcluder'), {excludedModules: options.removeModule}]

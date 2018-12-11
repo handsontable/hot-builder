@@ -23,7 +23,7 @@ function parseArgs() {
     .command('build', 'Build Handsontable Community Edition or Handsontable PRO package')
     .option(
       '-i, --input <dir>',
-      'Path to a directory where Handsontable Community Edition or Handsontable PRO repository was downloaded',
+      'The path to a directory where Handsontable repository was downloaded',
       resolve
     )
     .option(
@@ -35,18 +35,18 @@ function parseArgs() {
     )
     .option(
       '-a, --include-all',
-      'Include all found modules into generated bundle',
+      'Include all found modules into a generated bundle (including commercial ones)',
       program.BOOL
     )
     .option(
       '-A, --add-module [modules]',
-      'Include specified modules into generated bundle (eg. -A ContextMenu,ManualRowMove)',
+      'Include specified modules into a generated bundle (eg. -A ContextMenu,ManualRowMove)',
       list,
       []
     )
     .option(
       '-R, --remove-module [modules]',
-      'Exclude specified modules from generated bundle (eg. -R ContextMenu,ManualRowMove)',
+      'Exclude specified modules from a generated bundle (eg. -R ContextMenu,ManualRowMove)',
       list,
       []
     )
@@ -57,14 +57,9 @@ function parseArgs() {
     )
     .option(
       '--repository-tag [tag]',
-      'Specifies what version of Handsontable Community Edition or Handsontable PRO repository will be \ncloned (eg. --repository-tag develop, or --repository-tag 0.32.0). \nThis option is active only if you omitted -i, --input argument',
+      'Specifies what version of Handsontable repository will be cloned \n(eg. --repository-tag develop, or --repository-tag 7.0.0). \nThis option is active only if you omitted -i, --input argument',
       void 0,
       'master'
-    )
-    .option(
-      '--pro',
-      'Indicates that version specyfied by --repository-tag argument will be referring to the Handsontable PRO package',
-      program.BOOL
     )
     .option(
       '--debug',

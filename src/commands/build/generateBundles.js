@@ -21,7 +21,9 @@ module.exports = function generateBundles(data) {
       var commandOptions = objectClone(data.options);
       var workerOptions = {indent: 2};
 
+
       commandOptions.configName = configName;
+      commandOptions.isPro = data.options.includeAll || data.project.hasIncludedProModule(data.options.addModule);
       commands.push({
         command: commandGenerator('bundler', commandOptions),
         description: configFactory.CONFIG_DESCRIPTIONS[configName],
